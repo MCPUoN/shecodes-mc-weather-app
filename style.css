@@ -1,16 +1,13 @@
 h1 {
-  text-align: center;
+  color: rgb(61, 31, 31);
+  font-family: "Montserrat", sans-serif;
 }
-
-img {
-  width: 90%;
-  margin: 20px auto;
-  border-radius: 20px;
-  display: block;
+#arrow {
+  color: rgb(175, 116, 39);
 }
-
-.contact-btn {
-  display: block;
-  margin: 0 auto;
-  width: 200px;
+.rounded-pill {
+  color: black;
+}
+.box {
+  background: linear-gradient(to top, pink, yellow);
 }
