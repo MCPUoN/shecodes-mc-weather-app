@@ -9,7 +9,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link href="style.css" />
+    <link href="src/styles.css" />
     <script
       src="https://kit.fontawesome.com/4abeea4166.js"
       crossorigin="anonymous"
@@ -24,7 +24,7 @@
           <div class="row">
             <div class="col city">
               <div class="card" style="width: 300px">
-                <div class="card-header" id="cityShown">Madrid, Spain</div>
+                <div class="card-header" id="cityShown">Madrid</div>
               </div>
             </div>
             <div class="col search">
@@ -42,13 +42,14 @@
                     <button
                       type="submit"
                       value="search"
-                      id="SearchLocBtn"
+                      id="searchLocBtn"
                       class="btn btn-outline-primary d-md-inline"
                     >
                       Search
                     </button>
                     <button
-                      id="CurrLocBtn"
+                      type="click"
+                      id="currLocBtn"
                       value="current"
                       class="btn btn-success d-md-inline"
                     >
@@ -72,15 +73,15 @@
                 </div>
                 <div class="row-temp-range">
                   <i class="fas fa-temperature-low"></i
-                  ><span id="temp-min-0">0</span>ºC
+                  ><span id="temp-min0">0</span>ºC
                   <i class="fas fa-temperature-high"></i
-                  ><span id="temp-max-0">15</span>ºC
+                  ><span id="temp-max0">15</span>ºC
                 </div>
                 <div class="row-humidity">
-                  <i class="fas fa-smog"></i> <span id="humidity-0">69</span>%
+                  <i class="fas fa-smog"></i> <span id="humidity0">69</span>%
                 </div>
                 <div class="row-wind">
-                  <i class="fas fa-wind"></i><span id="wind-0">10</span>km/h
+                  <i class="fas fa-wind"></i><span id="wind0">10</span>km/h
                 </div>
               </div>
             </div>
@@ -158,10 +159,7 @@
         </div>
       </div>
     </div>
-    <script src="script.js">
-      let city =
-      prompt("Enter a city");
-      alert(city);
-    </script>
+    Open-source code MC
+    <script src="src/index.js"></script>
   </body>
 </html>

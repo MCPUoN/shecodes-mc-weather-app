@@ -49,16 +49,16 @@ function showTemp(response) {
   document.querySelector("#temperatureNow").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("temp-min-0").innerHTML = Math.round(
+  document.querySelector("#temp-min0").innerHTML = Math.round(
     response.data.main.temp_min
   );
-  document.querySelector("#temp-max-0").innerHTML = Math.round(
+  document.querySelector("#temp-max0").innerHTML = Math.round(
     response.data.main.temp_max
   );
-  document.querySelector("#wind-0").innerHTML = Math.round(
+  document.querySelector("#wind0").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#humidity-0").innerHTML = response.data.main.humidity;
+  document.querySelector("#humidity0").innerHTML = response.data.main.humidity;
   console.log(response);
   console.log(response.data.name);
 }
@@ -66,48 +66,32 @@ function showTemp(response) {
 // info based on city search
 function searchInput(city) {
   let apiKey = "4cca19136987fd45a7562c340065ee08";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityShown}&units=metric`;
-  let cityShown = "Madrid";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 }
 
-function whatCity(event) {
+function inputCity(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#cityTyped");
-  let cityShown = document.querySelector("#cityShown");
-  let value = searchInput.value;
-  cityShown.innerHTML = `${value}`;
-  let apiKey = "4cca19136987fd45a7562c340065ee08";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityShown}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(showTemp);
+  let city = document.querySelector("#cityTyped").value;
+  cityShown.innerHTML = `${city}`;
+  searchInput(city);
 }
+
 let form = document.querySelector("#whatCity");
-form.addEventListener("submit", whatCity);
+form.addEventListener("submit", inputCity);
 
 // geoloc data
-let currentLocButton = document.querySelector(".currLocBtn");
-currentLocButton.addEventListener("click", currLocSearch);
-
-function currLocSearch(event) {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "4cca19136987fd45a7562c340065ee08";
-  let geoApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}&units=metric}`;
-  axios.get(geoApiUrl).then(showTemp);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}&units=metric}`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 }
-navigator.geolocation.getCurrentPosition(currLocSearch);
-
-function showYourTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  console.log(response.data.main.temp);
-  let tempNow = document.querySelector("#temperatureNow");
-  tempNow.innerHTML = `${temperature}`;
+function currLocSearch(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-// let apiKey = "4cca19136987fd45a7562c340065ee08";
-// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityShown}&units=metric`;
-// let cityShown = "Madrid";
-// axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+let currentLocButton = document.querySelector(".currLocBtn");
+currLocBtn.addEventListener("click", currLocSearch);

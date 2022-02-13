@@ -1,13 +1,13 @@
+container {
+  background-color: bisque;
+}
 h1 {
-  color: rgb(61, 31, 31);
+  color: brown;
   font-family: "Montserrat", sans-serif;
 }
-#arrow {
-  color: rgb(175, 116, 39);
+.arrow {
+  color: burlywood;
 }
 .rounded-pill {
   color: black;
-}
-.box {
-  background: linear-gradient(to top, pink, yellow);
 }
